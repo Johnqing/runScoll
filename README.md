@@ -1,6 +1,6 @@
 # 滚动
 
-> 注意：obj必须有高度，并且为overflow:hidden
+> 注意：obj必须有高度，并且为overflow:hidden  
 > 调用方法
 scroll({
   obj: document.getElementById('demo'),
