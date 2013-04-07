@@ -46,6 +46,16 @@
 		return document.getElementById(id)
 	}
 	/**
+	 * 拓展
+	 * @param  {[Object]} define [默认配置项]
+	 * @param  {[Object]} source    
+	 * @return {[Object]}
+	 */
+	var extend = function(define, source) {
+		for (var property in source) define[property] = source[property];
+		return define;
+	}
+	/**
 	 * 默认参数
 	 * @type {Object}
 	 */
@@ -61,13 +71,14 @@
 	 * @主函数
 	 */
 	win.scroll = function(options){
-		options = options || defineConfig;
+		options = extend(defineConfig,options);
 		var t,
 		step = options.step,
 		delay = options.delay,
 		speed = options.speed;
 		var p = false; 
 		var o = options.obj;
+		console.log(step);
 		/**
 		 * 复制一份内容
 		 */
@@ -103,9 +114,7 @@
 //调用
 scroll({
 	obj: document.getElementById('demo'),
-	step: 25,
-	delay: 1000,
-	speed:30
+	step: 50
 });
 </script>
 
