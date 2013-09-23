@@ -34,83 +34,8 @@
 			<li> <span>2013年3月23日：</span><a href="#" target="_blank">兴义王先生预约看南村枫林房屋成功</a></li>
 		</ul>
 </div>
+<script type="text/javascript" src="scroll.js"></script>
 <script>
-
-(function(win, undefined){
-	/**
-	 * 获取元素
-	 * @param  {[Object]} id 
-	 * @return {[Object]} 
-	 */
-	var gId = function(id){
-		return document.getElementById(id)
-	}
-	/**
-	 * 拓展
-	 * @param  {[Object]} define [默认配置项]
-	 * @param  {[Object]} source    
-	 * @return {[Object]}
-	 */
-	var extend = function(define, source) {
-		for (var property in source) define[property] = source[property];
-		return define;
-	}
-	/**
-	 * 默认参数
-	 * @type {Object}
-	 */
-	var defineConfig = {
-		obj: gId('demo'),
-		step: 25,
-		delay: 1000,
-		speed:30
-	}
-	/**
-	 * [scroll description]
-	 * @param  {[Object]} options [参数]
-	 * @主函数
-	 */
-	win.scroll = function(options){
-		options = extend(defineConfig,options);
-		var t,
-		step = options.step,
-		delay = options.delay,
-		speed = options.speed;
-		var p = false; 
-		var o = options.obj;
-		console.log(step);
-		/**
-		 * 复制一份内容
-		 */
-		o.innerHTML += o.innerHTML; 
-		o.onmouseover = function(){ p=true }
-		o.onmouseout = function(){ p=false }
-		o.scrollTop = 0;
-		/**
-		 * 运动函数
-		 */
-		function start(){
-			t=setInterval(scrolling,speed);
-			if(!p){ o.scrollTop += 1;} 
-		} 
-		/**
-		 * 执行函数
-		 * @return {[type]} [description]
-		 */
-		function scrolling(){ 
-			if(o.scrollTop % step != 0){
-				o.scrollTop += 1; 
-				if(o.scrollTop >= o.scrollHeight/2){
-					o.scrollTop = 0;
-				} 
-			}else{
-				clearInterval(t);
-				setTimeout(start,delay);
-			}
-		}
-		setTimeout(start,delay);
-	}
-}(this));
 //调用
 scroll({
 	obj: document.getElementById('demo'),
